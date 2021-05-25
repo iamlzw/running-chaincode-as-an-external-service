@@ -1,3 +1,5 @@
 #!/bin/sh
 
-docker-compose -f docker-compose-orderer.yaml up -d
+export COMPOSE_PROJECT_NAME=net
+
+docker-compose -f docker-compose-net.yaml up -d
