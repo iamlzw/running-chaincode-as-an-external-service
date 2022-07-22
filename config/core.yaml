@@ -557,12 +557,12 @@ chaincode:
     # List of directories to treat as external builders and launchers for
     # chaincode. The external builder detection processing will iterate over the
     # builders in the order specified below.
-    externalBuilders: []
-        # - path: /path/to/directory
-        #   name: descriptive-builder-name
-        #   propagateEnvironment:
+    externalBuilders: 
+         - path: /build/sampleBuilder
+           name: external-sample-builder
+           propagateEnvironment:
         #      - ENVVAR_NAME_TO_PROPAGATE_FROM_PEER
-        #      - GOPROXY
+              - GOPROXY
 
     # The maximum duration to wait for the chaincode build and install process
     # to complete.
