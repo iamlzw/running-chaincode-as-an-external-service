@@ -49,7 +49,7 @@ chaincode-external/sampleBuilder
     └── release
 ```
 
-### 2、启动测试网络
+### 4、启动测试网络
 
 ```bash
 ## 启动容器
@@ -58,7 +58,7 @@ $ ./start.sh
 $ ./join.sh
 ```
 
-### 3、构建chaincode镜像
+### 5、构建chaincode镜像
 
 ```bash
 $ cd chaincode
@@ -67,7 +67,7 @@ $ docker build -t examplecc:1.0 .
 $ docker ps | grep examplecc
 ```
 
-### 4、打包合约
+### 6、打包合约
 
 ```bash
 $ cd chaincode/packaging
@@ -104,7 +104,7 @@ $ tar -czvf code.tar.gz connection.json
 $ tar -czvf examplecc.tar.gz code.tar.gz connection.json
 ```
 
-### 4、安装合约
+### 7、安装合约
 
 在`peer0.org1.example.com`和`peer0.org2.example.com`上安装合约
 
@@ -116,21 +116,21 @@ $ ./install_chaincode.sh
 
 输出的`a960cf49097b238dbfd0b448fd0f5f376cf2964ab6c78d840de83d7f2c8592a6`将用于之后启动合约容器以及实例化合约。
 
-### 5、启动合约容器
+### 8、启动合约容器
 
 ```bash
 $ cd chaincode
 $ docker run -d --name examplecc.org1.example.com --hostname examplecc.org1.example.com --env-file chaincode.env --network=net_byfn chaincode/examplecc:1.0
 ```
 
-### 6、实例化调用合约
+### 9、实例化调用合约
 
 ```bash
 $ ./init_chaincode.sh
 ```
 ![image-20220722225214418](https://user-images.githubusercontent.com/27334218/180473822-cb1b9874-69bd-470f-97ef-bd9e3381ad3c.png)
 
-### 7、清理网络
+### 10、清理网络
 
 ```bash
 $ ./stop.sh
